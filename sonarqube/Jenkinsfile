@@ -3,11 +3,11 @@ node {
     myGradleContainer.pull()
 
     stage('prep') {
-        git url: 'https://github.com/wardviaene/gs-gradle.git'
+        git url: 'https://github.com/mokchend/gs-gradle.git'
     }
 
     stage('build') {
-      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
+      myGradleContainer.inside("-v /mnt/a/data01/jenkins_home/.gradle:/home/gradle/.gradle") {
         sh 'cd complete && /opt/gradle/bin/gradle build'
       }
     }
